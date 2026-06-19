@@ -30,7 +30,7 @@ export function getLevelFromXP(xp: number): number {
 export function getXPToNextLevel(xp: number) {
   const lvl = getLevelFromXP(xp)
   const cur = LEVEL_THRESHOLDS[lvl - 1] ?? 0
-  const next = LEVEL_THRESHOLDS[lvl] ?? LEVEL_THRESHOLDS.at(-1)!
+  const next = LEVEL_THRESHOLDS[lvl] ?? LEVEL_THRESHOLDS[LEVEL_THRESHOLDS.length - 1]!
   return { current: xp - cur, needed: Math.max(1, next - cur), percent: Math.min(100, ((xp - cur) / Math.max(1, next - cur)) * 100) }
 }
 

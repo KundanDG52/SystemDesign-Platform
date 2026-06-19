@@ -39,7 +39,7 @@ export function ScalingDemo() {
 
 // ─── Latency numbers ─────────────────────────────────────────────────────────
 export function LatencyTable() {
-  const max = Math.log10(LATENCY_NUMBERS.at(-1)!.ns)
+  const max = Math.log10(LATENCY_NUMBERS[LATENCY_NUMBERS.length - 1]!.ns)
   return (
     <div className="flex flex-col gap-1.5">
       <div className="annotation mb-1">latency numbers every engineer should know</div>
