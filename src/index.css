@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-bg text-white/90 font-sans antialiased;
+    min-height: 100vh; background-color: #080c14;
+  }
+  ::-webkit-scrollbar { width: 7px; height: 7px; }
+  ::-webkit-scrollbar-track { background: #080c14; }
+  ::-webkit-scrollbar-thumb { background: #1c2740; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #2a3a5c; }
+  ::selection { background: rgba(34,211,238,0.3); }
+}
+
+@layer components {
+  .panel { background: rgba(12,18,30,0.82); border: 1px solid rgba(34,211,238,0.16); backdrop-filter: blur(8px); }
+
+  /* ADR-styled card */
+  .adr {
+    position: relative; background: rgba(12,18,30,0.8); border: 1px solid rgba(34,211,238,0.18);
+    border-left: 3px solid #22d3ee;
+  }
+  .adr-emerald { border-left-color: #10b981; }
+  .adr-violet { border-left-color: #8b5cf6; }
+  .adr-amber { border-left-color: #f59e0b; }
+
+  .glow-cyan { box-shadow: 0 0 20px rgba(34,211,238,0.16); }
+  .glow-emerald { box-shadow: 0 0 20px rgba(16,185,129,0.16); }
+
+  .btn-cyan { @apply px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-150 active:scale-95; background: #22d3ee; color: #08121a; box-shadow: 0 0 18px rgba(34,211,238,0.3); }
+  .btn-cyan:hover { filter: brightness(1.1); }
+  .btn-emerald { @apply px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-150 active:scale-95; background: #10b981; color: #06140e; }
+  .btn-ghost { @apply px-3 py-1.5 rounded-lg font-medium text-sm transition-all duration-150; border: 1px solid #1c2740; color: rgba(255,255,255,0.55); }
+  .btn-ghost:hover { border-color: rgba(34,211,238,0.5); color: #fff; background: rgba(34,211,238,0.08); }
+
+  .chip { @apply text-[10px] px-2 py-0.5 rounded border; }
+  .code-block { @apply font-mono text-[12.5px] leading-relaxed rounded-lg p-4 overflow-x-auto; background: #060a12; border: 1px solid #131d31; }
+  .annotation { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: rgba(34,211,238,0.55); text-transform: uppercase; }
+  .stat-num { font-family: 'JetBrains Mono', monospace; font-weight: 700; }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .topo-grid {
+    background-image: radial-gradient(rgba(34,211,238,0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+}
+
+/* ReactFlow dark theme overrides */
+.react-flow { background: transparent; }
+.react-flow__background { background: transparent; }
+.react-flow__edge-path { stroke: #22d3ee; stroke-width: 1.6; }
+.react-flow__edge.animated .react-flow__edge-path { stroke-dasharray: 6; animation: flow-dash 0.5s linear infinite; }
+.react-flow__edge-text { fill: #93c5fd; font-size: 10px; font-family: 'JetBrains Mono', monospace; }
+.react-flow__edge-textbg { fill: #0c121e; }
+.react-flow__handle { background: #22d3ee; border: 1px solid #08121a; width: 7px; height: 7px; }
+.react-flow__controls { background: #0f1626; border: 1px solid #1c2740; border-radius: 8px; overflow: hidden; }
+.react-flow__controls-button { background: #0f1626; border-bottom: 1px solid #1c2740; color: #22d3ee; }
+.react-flow__controls-button:hover { background: #1c2740; }
+.react-flow__attribution { display: none; }
+.react-flow__minimap { background: #0c121e; border: 1px solid #1c2740; border-radius: 8px; }
