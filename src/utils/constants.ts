@@ -20,17 +20,13 @@ export const ACHIEVEMENTS: Achievement[] = [
   { id: 'principal', name: 'Principal Engineer', description: 'Visit all sections', icon: '🏛️', earned: false, color: '#f59e0b' },
 ]
 
-export const LEADERBOARD = [
-  { name: 'Werner V.', xp: 5600, level: 5, avatar: 'W', color: '#22d3ee' },
-  { name: 'Jeff D.', xp: 4900, level: 5, avatar: 'J', color: '#10b981' },
-  { name: 'Adrian C.', xp: 4100, level: 4, avatar: 'A', color: '#8b5cf6' },
-  { name: 'Marc B.', xp: 3200, level: 4, avatar: 'M', color: '#f59e0b' },
-]
-
 export const LEVEL_THRESHOLDS = [0, 200, 600, 1400, 3000, 6000]
 export const LEVEL_TITLES = ['Junior', 'Senior', 'Staff', 'Principal', 'Distinguished']
 
-export function getLevelFromXP(xp: number): number { return Math.min(LEVEL_THRESHOLDS.length - 1, Math.max(1, LEVEL_THRESHOLDS.findLastIndex(t => xp >= t) + 1)) }
+export function getLevelFromXP(xp: number): number {
+  const idx = LEVEL_THRESHOLDS.reduce((acc, t, i) => xp >= t ? i : acc, 0)
+  return Math.min(LEVEL_THRESHOLDS.length - 1, Math.max(1, idx + 1))
+}
 export function getXPToNextLevel(xp: number) {
   const lvl = getLevelFromXP(xp)
   const cur = LEVEL_THRESHOLDS[lvl - 1] ?? 0
