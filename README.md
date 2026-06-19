@@ -40,4 +40,3 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 | `npm run build` | Type-check and build for production |
 | `npm run preview` | Preview production build locally |
 | `npm test` | Run unit tests with Vitest |
-# SystemDesign-Platform
